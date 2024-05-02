@@ -51,6 +51,12 @@
 }
 
 
+@media (max-width: 900px) {
+    .benefits-content-list-element {
+      flex: 33%;
+    }
+}
+
 .benefits-content, .join-content, .map-content, .join-dynamights-content, .cta-content, .testimonials-content {
     text-align: center;
     padding: 0px 20px 20px;
@@ -127,6 +133,12 @@
 
 .benefits-content-list-icon > img {
     height: 60px;
+    transition: transform .2s;
+}
+
+.benefits-content-list-icon > img:hover {
+    height: 60px;
+    transform: scale(1.2);
 }
 
 .benefits-content-list-description, .benefits-content-list-description-blue {
@@ -189,6 +201,7 @@
 
 .map-wrapper {
    display: flex;
+   flex-direction: column;
 }
 
 .map-content-image {
@@ -218,6 +231,25 @@
    line-height: 30px;
    font-weight: 300;
    justify-content: center;
+}
+
+.map-div {
+  align-self: center;
+  margin-bottom: 30px;
+}
+
+.violet-button {
+  background-color: rgb(156, 77, 184);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.violet-button:hover {
+  background-color: rgb(128, 62, 154);
 }
 
 /*Join page - Testimonials component*/
@@ -311,7 +343,7 @@
 
 #testimonials-carousel > .carousel-indicators > li {
     display: inline-block;
-    width: calc(100% / 4 - 50px);
+    width: calc(100% / 5 - 50px);
     height: 0.6rem;
     margin: 20px;
     text-indent: -999px;
@@ -323,7 +355,7 @@
 
 #testimonials-carousel .carousel-indicators .active {
     display: inline-block;
-    width: calc(100% / 4 - 50px);
+    width: calc(100% / 5 - 50px);
     height: 0.6rem;
     margin: 20px;
     text-indent: -999px;
@@ -689,6 +721,24 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
 <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet preconnect">
 
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const mapElement = document.getElementsByClassName("map-wrapper")[0];
+    const mapDiv = document.createElement("div");
+    mapDiv.className = "map-div";
+
+    const button = document.createElement("button");
+    button.className = "violet-button";
+    button.textContent = "Open Google Maps";
+    button.addEventListener("click", function() {
+        window.open("https://maps.google.com", "_blank");
+    });
+
+    mapDiv.appendChild(button);
+    mapElement.appendChild(mapDiv);
+  });
+</script>
+
 </head>
 <body>
 
@@ -840,6 +890,7 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
     <li data-target="#testimonials-carousel" data-slide-to="1"></li>
     <li data-target="#testimonials-carousel" data-slide-to="2"></li>
     <li data-target="#testimonials-carousel" data-slide-to="3"></li>
+    <li data-target="#testimonials-carousel" data-slide-to="4"></li>
   </ol>
 
   <div class="carousel-inner">
@@ -922,6 +973,27 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
           <div class="testimonials-picture-name">
             <h2>Latarasa Abdelmalek</h2>
             <p>Monitoring and Performance Consultant</p>
+          </div>
+        </div>
+     </div>
+    </div>
+
+    <div class="item">
+     <div class="testimonials-quote-wrap">
+      <div class="testimonials-quote-element">
+        <div class="testimonials-quote">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis enim nam aliquam quo molestias ad ex, maiores architecto quasi culpa. Autem fugiat totam repudiandae veritatis doloremque labore beatae numquam sint.</p>
+          <img class="testimonial-quote-mark-1" src="https://community.dynatrace.com/html/assets/quote_black.png">
+          <img class="testimonial-quote-mark-2" src="https://community.dynatrace.com/html/assets/quote_black.png">
+        </div>
+      </div>
+        <div class="testimonials-picture">
+          <div class="testimonials-picture-avatar">
+            <img src="https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_square.jpg"></img>
+          </div>
+          <div class="testimonials-picture-name">
+            <h2>Test Test</h2>
+            <p>Dynatrace Test</p>
           </div>
         </div>
      </div>
